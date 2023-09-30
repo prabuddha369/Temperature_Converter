@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightyellow"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="164dp"
+        android:src="@drawable/thermometer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="136dp"
+        android:gravity="center"
+        android:text="\u00B0C"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="488dp"
+        android:gravity="center"
+        android:text="K"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="236dp"
+        android:gravity="center"
+        android:text="\u00B0C"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="368dp"
+        android:gravity="center"
+        android:text="\u00B0F"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/celcius"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textbg"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/farenheit"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="376dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textbg"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/kelvin"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textbg"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="172dp"
+        android:progress="0"
+        android:progressTint="@color/red"
+        android:rotation="270"
+        android:thumbTint="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="248dp"
+        android:gravity="center"
+        android:text="100\n\n\n75\n\n\n50\n\n\n25\n\n\n0"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/header"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="TEMPERATURE CONVERTER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
