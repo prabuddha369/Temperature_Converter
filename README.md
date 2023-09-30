@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to the Temperature Converter App repository! This is a simple web-based application that allows users to convert temperatures between different units, such as Celsius, Fahrenheit, and Kelvin. This project is open to contributors, and we encourage you to join us in making this app even better.
+Welcome to the Temperature Converter App repository! This is a simple android-based application that allows users to convert temperatures between different units, such as Celsius, Fahrenheit, and Kelvin. This project is open to contributors, and we encourage you to join us in making this app even better.
 
 ## Features
 
