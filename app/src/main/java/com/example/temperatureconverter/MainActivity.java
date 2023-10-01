@@ -1,17 +1,24 @@
 package com.example.temperatureconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView farenheit, kelvin;
     EditText celcius;
+    ImageView thermo;
     SeekBar seekbar;
     private boolean shouldUpdateSeekBar = true;
 
@@ -22,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         celcius = findViewById(R.id.celcius);
         farenheit = findViewById(R.id.farenheit);
+        thermo=findViewById(R.id.thermo);
         kelvin = findViewById(R.id.kelvin);
         seekbar = findViewById(R.id.seekbar);
 
@@ -36,7 +44,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    updateValuesforCelcius(celcius.getText().toString());
+                    if(Double.parseDouble(celcius.getText().toString())< -273.15)
+                    {
+                        Toast.makeText(MainActivity.this, "0 Kelvin is the lowest possible temperature", Toast.LENGTH_SHORT).show();
+                        celcius.setText("-273.15");
+                        updateValuesforCelcius(celcius.getText().toString());
+                        celcius.clearFocus();
+                    }
+                    else{
+                        updateValuesforCelcius(celcius.getText().toString());
+                        celcius.clearFocus();
+                    }
+                    hideKeyboard();
                     return true;
                 }
                 return false;
@@ -74,10 +93,33 @@ public class MainActivity extends AppCompatActivity {
         // Update EditTexts for Fahrenheit and Kelvin
         farenheit.setText(String.format("%.2f", fahrenheitValue));
         kelvin.setText(String.format("%.2f", kelvinValue));
+        if(celsiusValue>100.0)
+        {
+            vibratePhone();
+            thermo.setImageResource(R.drawable.thermometerbroken);
+        }
+        else {
+            thermo.setImageResource(R.drawable.thermometer);
+        }
 
         // Update SeekBar based on Celsius input (allowing values beyond 0-100 range)
         shouldUpdateSeekBar = false; // Disable SeekBar updates temporarily
         seekbar.setProgress((int) celsiusValue);
         shouldUpdateSeekBar = true; // Enable SeekBar updates again
+    }
+
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(celcius.getWindowToken(), 0);
+        }
+    }
+
+    private void vibratePhone() {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null && vibrator.hasVibrator()) {
+            // Vibrate for 500 milliseconds (0.5 seconds)
+            vibrator.vibrate(500);
+        }
     }
 }
